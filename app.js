@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -17,12 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 🔥 Serve static files from uploads folder
-app.use("/uploads", express.static("uploads"));
+app.use(express.static("public")); // ✅ now everything in public is directly accessible
 
 // Routers
 app.use("/api/amazon", userRouter);
-app.use("/api/amazon", productRouter);
 app.use("/api/amazon", uploadRouter); // <– mount the upload route
+app.use("/api/amazon", productRouter);
 app.use("/api/amazon", cartRouter);
 
 const port = 3007;
