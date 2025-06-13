@@ -2,8 +2,6 @@ const Cart = require("../model/cartModel");
 
 const addToCart = async (req, res) => {
   try {
-    const item = new CartItem(req.body);
-
     const userId = req.user._id; // From verifyToken middleware
     const { productId, image, description, price } = req.body;
 
