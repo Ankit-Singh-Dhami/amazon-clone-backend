@@ -25,7 +25,7 @@ app.use(express.static("public")); // ✅ now everything in public is directly a
 app.use("/api/amazon", userRouter);
 app.use("/api/amazon", uploadRouter); // <– mount the upload route
 app.use("/api/amazon", productRouter);
-app.use("/api/amazon", cartRouter);
+app.use("/api/amazon", authMiddleware, cartRouter);
 
 const port = 3007;
 
