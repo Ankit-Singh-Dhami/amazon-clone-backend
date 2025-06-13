@@ -2,7 +2,6 @@ const CartItem = require("../model/cartModel");
 
 const addToCart = async (req, res) => {
   try {
-    console.log(req.body);
     const item = new CartItem(req.body);
     const saved = await item.save();
     res.json(saved);
