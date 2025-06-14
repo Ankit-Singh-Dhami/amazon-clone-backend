@@ -1,0 +1,1 @@
+this is amazon clone backend it has a lot of mistake and i just made it for practice the rest api and how i connect the backend and frontend with databases it is my first project which i am going to deploy so that it.
