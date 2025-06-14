@@ -24,7 +24,9 @@ const addToCart = async (req, res) => {
 const getCart = async (req, res) => {
   try {
     const userId = req.user.id;
+    console.log(userId);
     const items = await Cart.find({ userId });
+    console.log(items);
     res.json({ success: true, cart: items });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });

@@ -12,10 +12,9 @@ const uploadRouter = require("./router/uploadRouter"); // <– add your upload r
 
 const authMiddleware = require("./middleware/auth");
 
-const DB_url = "mongodb+srv://root:root@restart.vxqtwkt.mongodb.net/";
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+
 app.use(express.urlencoded({ extended: true }));
 
 // 🔥 Serve static files from uploads folder
@@ -30,7 +29,7 @@ app.use("/api/amazon", authMiddleware, cartRouter);
 const port = 3007;
 
 mongoose
-  .connect(DB_url)
+  .connect(process.env.DB_url)
   .then(() => {
     console.log("Mongoose connected");
     app.listen(port, () => {
